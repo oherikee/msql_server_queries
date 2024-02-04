@@ -4,7 +4,7 @@ AS
 BEGIN
     DECLARE @resultado FLOAT;
     BEGIN TRY
-        SET @resultado = @numerador / NULLIF(@denominador, 0);
+        SET @resultado = @numerador / @denominador
     END TRY
     BEGIN CATCH
         SET @resultado = NULL;
