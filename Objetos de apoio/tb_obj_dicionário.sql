@@ -6,7 +6,7 @@ CREATE TABLE obj_dicionario (
     param_tipo NVARCHAR(128),
     mensagem NVARCHAR(4000)
 );
-
+GO
 -- Script para popular a tabela-dicionário com informações sobre funções e seus parâmetros
 INSERT INTO obj_dicionario (obj_tipo, obj_nome, param_nome, param_tipo, mensagem)
 SELECT 
@@ -17,7 +17,7 @@ SELECT
     'Mensagem para o parâmetro ' + ROUTINE_NAME + '.' + PARAMETER_NAME AS mensagem
 FROM INFORMATION_SCHEMA.PARAMETERS
 WHERE SPECIFIC_SCHEMA = 'dbo' AND OBJECT_NAME(OBJECT_ID) IS NOT NULL;
-
+GO
 -- Script para popular a tabela-dicionário com informações sobre procedures e parâmetros
 INSERT INTO obj_dicionario (obj_tipo, obj_nome, param_nome, param_tipo, mensagem)
 SELECT 
@@ -28,7 +28,7 @@ SELECT
     'Mensagem para o parâmetro ' + ROUTINE_NAME + '.' + PARAMETER_NAME AS mensagem
 FROM INFORMATION_SCHEMA.PARAMETERS
 WHERE SPECIFIC_SCHEMA = 'dbo' AND OBJECT_NAME(OBJECT_ID) IS NULL;
-
+GO
 -- Criação do trigger responsável por alimentar automáticamente a tabela-dicionário com objetos futuramente criados
 CREATE TRIGGER ObjectDDLTrigger
 ON DATABASE
@@ -83,3 +83,4 @@ BEGIN
         WHERE obj_tipo = @obj_tipo AND obj_nome = @obj_nome;
     END
 END;
+GO
