@@ -9,5 +9,9 @@ Abaixo, uma lista contendo os objetos e seus usos:
 - f_div_segura.divisor: Parâmetro responsável por alimentar o denominador da divisão.
 <br>
 
-  [f_div_segura](https://github.com/oherikee/msql_server_queries/blob/main/Objetos%20de%20apoio/f_div_segura.sql):
+[f_div_segura](https://github.com/oherikee/msql_server_queries/blob/main/Objetos%20de%20apoio/f_div_segura.sql):
   É uma função responsável por realizar divisões utilizando um try...catch, evitando problemas como divisão por zero, por exemplo.
+<br>
+
+[f_tabela_por_culuna](https://github.com/oherikee/msql_server_queries/blob/main/Objetos%20de%20apoio/f_tabela_por_coluna.sql):
+  Esta função retorna todas as tabelas que contenham uma coluna semelhante ao parâmetro informado.
