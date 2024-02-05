@@ -1,4 +1,4 @@
-CREATE OR ALTER FUNCTION f_tabela_por_coluna(
+CREATE OR ALTER FUNCTION tabela_por_coluna(
     @col_cod VARCHAR(30)
 )
 RETURNS TABLE
@@ -15,4 +15,4 @@ JOIN
 WHERE 
 	col.name LIKE @col_cod;
 GO
-SELECT * FROM f_tabela_por_coluna('CAI_COD')
+SELECT * FROM tabela_por_coluna('CAI_COD')
